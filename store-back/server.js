@@ -1,17 +1,27 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-
+const bodyParser = require("body-parser");
 const itemRecordRoute = require("./Api/itemRecord");
 const authRoute = require("./Api/authroute");
 const registerUser = require("./Api/registeruser");
 const approveRecord = require("./Api/adminRecord");
 const approvedRecord = require("./Api/investorRecord");
 
-dotenv.config({ path: "./config.env" });
-
+var cors = require("cors");
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+dotenv.config({ path: "./config.env" });
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
 app.use(express.json());
+ 
 app.use("/api/itemRecord", itemRecordRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/register", registerUser);

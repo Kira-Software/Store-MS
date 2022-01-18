@@ -27,7 +27,7 @@ router.post(
   }
 );
 
-router.get("/", auth, async (req, res) => {
+router.get("/",auth, async (req, res) => {
   try {
     const itemRecord = await ItemRecordModel.find({ approved: false });
 
