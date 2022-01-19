@@ -2,20 +2,14 @@ import React from 'react';
 // import type {Node} from 'react';
 import Login from './components/login';
 import Home from './components/home';
-import {StyleSheet, View, AppRegistry} from 'react-native';
-import {Router, Scene} from 'react-native-router-flux';
+import {StyleSheet, View} from 'react-native';
 
 const App = () => {
   return (
-    <Router>
-      <Scene key="root">
-        <Scene key="home" component={Home} title="Home" />
-        <Scene key="login" component={Login} title="Login" initial={true} />
-      </Scene>
-    </Router>
-    // <View style={styles.container}>
-    //   <Login />
-    // </View>
+    <View style={styles.container}>
+      {/* <Login /> */}
+      <Text>Hellow</Text>
+    </View>
   );
 };
 
